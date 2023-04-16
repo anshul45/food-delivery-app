@@ -31,8 +31,22 @@ const Home = () => {
                   </button>
 
                   <button className="all__foods-btn">
-                    <Link to="/foods">See all foods</Link>
+                    <Link style={{ textDecoration: "none" }} to="/foods">
+                      See all foods
+                    </Link>
                   </button>
+                </div>
+                <div className="hero__service  d-flex align-items-center gap-5 mt-5">
+                  <p className="d-flex align-items-center gap-2">
+                    <span className="shipping__icon">
+                      <i class="ri-car-line"></i> No shipping charge
+                    </span>
+                  </p>
+                  <p className="d-flex align-items-center gap-2">
+                    <span className="shipping__icon">
+                      <i class="ri-shield-check-line"></i> 100% secure checkout
+                    </span>
+                  </p>
                 </div>
               </div>
             </Col>
