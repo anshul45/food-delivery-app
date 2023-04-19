@@ -11,6 +11,7 @@ import "../../../styles/shopping-cart.css";
 
 const Carts = () => {
   const dispatch = useDispatch();
+  const cartProducts = useSelector((state) => state.cart.cartItems);
 
   const toggleCart = () => {
     dispatch(cartUiActions.toggle());
@@ -25,19 +26,13 @@ const Carts = () => {
         </div>
 
         <div className="cart__item-list">
-          <CartItem />
-          <CartItem />
-          <CartItem />
-          <CartItem />
-          <CartItem />
-          <CartItem />
-          <CartItem />
-          <CartItem />
-          <CartItem />
-          <CartItem />
-          <CartItem />
-          <CartItem />
-          <CartItem />
+          {cartProducts.length === 0 ? (
+            <h6 className="text-center mt-5">No item added to the cart</h6>
+          ) : (
+            cartProducts.map((item, index) => (
+              <CartItem item={item} key={index} />
+            ))
+          )}
         </div>
 
         <div className="cart__bottom d-flex align-items-center justify-content-between">
