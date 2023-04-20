@@ -13,7 +13,14 @@ const CartItem = ({ item }) => {
   const dispatch = useDispatch();
 
   const incrementItem = () => {
-    dispatch(cartActions.addItem);
+    dispatch(
+      cartActions.addItem({
+        id,
+        title,
+        price,
+        image01,
+      })
+    );
   };
 
   return (
@@ -27,7 +34,7 @@ const CartItem = ({ item }) => {
               {quantity}x <span>${totalPrice}</span>
             </p>
             <div className="d-flex align-items-center justify-content-between increase__decrease-btn">
-              <span className="increase__btn">
+              <span className="increase__btn" onClick={incrementItem}>
                 <i class="ri-add-line"></i>
               </span>
               <span className="quantity">{quantity}</span>
