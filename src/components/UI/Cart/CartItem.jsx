@@ -23,6 +23,14 @@ const CartItem = ({ item }) => {
     );
   };
 
+  const decreaseItem = () => {
+    dispatch(cartActions.removeItem(id));
+  };
+
+  const deleteItem = () => {
+    dispatch(cartActions.deleteItem(id));
+  };
+
   return (
     <ListGroupItem className="border-0 cart__item">
       <div className="cart__item-info d-flex  gap-2">
@@ -38,12 +46,12 @@ const CartItem = ({ item }) => {
                 <i class="ri-add-line"></i>
               </span>
               <span className="quantity">{quantity}</span>
-              <span className="decrease__btn">
+              <span className="decrease__btn " onClick={decreaseItem}>
                 <i class="ri-subtract-line"></i>
               </span>
             </div>
           </div>
-          <span className="delete__btn">
+          <span className="delete__btn" onClick={deleteItem}>
             <i class="ri-close-line"></i>
           </span>
         </div>

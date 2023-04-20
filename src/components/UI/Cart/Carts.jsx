@@ -12,6 +12,7 @@ import "../../../styles/shopping-cart.css";
 const Carts = () => {
   const dispatch = useDispatch();
   const cartProducts = useSelector((state) => state.cart.cartItems);
+  const totalAmount = useSelector((state) => state.cart.totalAmount);
 
   const toggleCart = () => {
     dispatch(cartUiActions.toggle());
@@ -37,7 +38,7 @@ const Carts = () => {
 
         <div className="cart__bottom d-flex align-items-center justify-content-between">
           <h6>
-            Subtotal : <span>$123</span>
+            Subtotal : <span>${totalAmount}</span>
           </h6>
           <button>
             <Link style={{ textDecoration: "none" }} to="/checkout">
