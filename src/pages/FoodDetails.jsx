@@ -5,6 +5,8 @@ import Helmet from "../components/Helmet/Helmet";
 import CommonSection from "../components/UI/common-section/CommonSection";
 import { Container, Row, Col } from "reactstrap";
 import productImg from "../assets/images/product_01.1.jpg";
+
+import "../styles/product-detail.css";
 const FoodDetails = () => {
   return (
     <Helmet title="Product-details">
@@ -30,7 +32,16 @@ const FoodDetails = () => {
                 <img src={productImg} alt="" className="w-100" />
               </div>
             </Col>
-            <Col lg="6" md="6"></Col>
+            <Col lg="6" md="6">
+              <div className="single__product-content">
+                <h2 className="product__title">Pizza with mushroom</h2>
+                <span className="product__price">$34</span>
+                <p>
+                  Category: <span>Burger</span>
+                </p>
+                <button className="addTOCart__btn">Add to Cart</button>
+              </div>
+            </Col>
           </Row>
         </Container>
       </section>
