@@ -89,3 +89,7 @@ font-size: 2rem;
 .img__item{ 
     cursor: pointer;
 }
+
+.related__Product-title{
+    font-size: 1.4rem;
+}
