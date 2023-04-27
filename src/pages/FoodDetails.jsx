@@ -5,19 +5,35 @@ import Helmet from "../components/Helmet/Helmet";
 import CommonSection from "../components/UI/common-section/CommonSection";
 import { Container, Row, Col } from "reactstrap";
 
+import { useDispatch } from "react-redux";
+import { cartActions } from "../store/shopping-cart/cartSlice";
+
 import "../styles/product-details.css";
 
 import ProductCard from "../components/UI/product-card/ProductCard";
 
 const FoodDetails = () => {
   const [tab, setTab] = useState("desc");
+  const [enteredName, setEnteredName] = useState("");
   const { id } = useParams();
+  const dispatch = useDispatch();
 
   const product = products.find((product) => product.id === id);
   const [previewImg, setPreviewImg] = useState(product.image01);
-  const { title, price, category, desc } = product;
+  const { title, price, category, desc, image01 } = product;
 
   const relatedProduct = products.filter((item) => category === item.category);
+
+  const addItem = () => {
+    dispatch(
+      cartActions.addItem({
+        id,
+        title,
+        price,
+        image01,
+      })
+    );
+  };
 
   useEffect(() => {
     setPreviewImg(product.image01);
@@ -69,7 +85,9 @@ const FoodDetails = () => {
                 <p className="category mb-5">
                   Category: <span>{category}</span>
                 </p>
-                <button className="addTOCart__btn">Add to Cart</button>
+                <button onClick={addItem} className="addTOCart__btn">
+                  Add to Cart
+                </button>
               </div>
             </Col>
             <Col lg="12">
